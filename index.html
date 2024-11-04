@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      body {
-        background-color: #555555ee;
-      }
       #section {
         max-width: 530px;
         position: relative;
         margin: 0 auto;
+        background-color: #ffeeff33;
       }
-
       .strip {
         width: 100%;
         /*  띠의 높이  */
-        height: 30px;
+        height: 60px;
         /*  띠의 배경 색  */
-        background-color: #eeeeee33;
+        /*   background-color: #f5460c; */
         /* 하위 텍스트 Span 엘레멘트를 가로로 배열하고, 가운데 정렬한다  */
         display: flex;
         align-items: center;
@@ -36,7 +31,7 @@
         left: 0;
         z-index: -1;
         /* 회전 및 모서리 모양 자르기 */
-        transform: rotate(0%);
+        transform: rotate(-16deg);
         clip-path: polygon(0.4% 6%, 100% 0, 100% 100%, 10px 100%);
       }
 
@@ -53,8 +48,7 @@
         left: 0;
         z-index: 1;
         /* 회전 및 모서리 모양 자르기 */
-        transform: rotate(0%);
-
+        transform: rotate(6deg);
         clip-path: polygon(0 0%, 100% 0, 100% 100%, 10px 100%);
       }
 
@@ -83,35 +77,59 @@
       }
 
       #back .text {
-        animation: scroll-right 20s linear infinite;
+        animation: scroll-right 10s ease-in infinite;
       }
 
       #front .text {
-        animation: scroll-left 20s linear infinite;
+        animation: scroll-left 10s linear infinite;
+      }
+
+      @keyframes slide-in {
+        from {
+          translate: 150vw 0;
+          scale: 200% 1;
+        }
+
+        to {
+          translate: 0 0;
+          scale: 100% 1;
+        }
       }
     </style>
-    <title>Example</title>
   </head>
   <body>
     <div id="section">
       <div class="strip" id="front">
-        <span class="text">자야돼 양 한 마리 🐑</span>
-        <span class="text">자야돼 양 두 마리 🐑</span>
+        <span class="text">자야돼 양 한 마리 🐑 </span>
+        <span class="text">자야돼 양 두 마리 🐑 </span>
         <span class="text">자야돼 양 세 마리 🐑</span>
         <span class="text">자야돼 양 네 마리 🐑</span>
-        <span class="text">자야돼 양 다섯 마리 🐑</span>
-        <span class="text">자야돼 양 여섯 마리 🐑</span>
       </div>
       <div class="strip" id="back">
-        <span class="text">자야돼 양 한 마리🐑</span>
-        <span class="text">자야돼 양 여섯 마리 🐑</span>
-        <span class="text">자야돼 양 다섯 마리 🐑</span>
-        <span class="text">자야돼 양 네 마리 🐑</span>
-        <span class="text">자야돼 양 세 마리 🐑</span>
-        <span class="text">자야돼 양 두 마리 🐑</span>
-        <span class="text">자야돼 양 한 마리 🐑</span>
+        <span class="text">자야돼 양 다섯 마리 🐑 </span>
+        <span class="text">자야돼 양 여섯 마리 🐑 </span>
+        <span class="text">자야돼 양 일곱 마리 🐑</span>
+        <span class="text">자야돼 양 여덟 마리 🐑</span>
       </div>
-      <img src="./eye.png" alt="" id="thumb" />
+      <img
+        src="https://t1.daumcdn.net/tistory_admin/assets/challenge/today-blog/img_intro_mid.svg"
+        alt=""
+        id="thumb"
+      />
     </div>
   </body>
 </html>
+
+<div>
+  <div class="strip">
+    <span class="text"></span>
+    <span class="text"></span>
+    <span class="text"></span>
+    <span class="text"></span>
+  </div>
+  <div class="strip">
+    <span class="text"></span><span class="text"></span
+    ><span class="text"></span><span class="text"></span>
+  </div>
+  <img src="" alt="" id="thumb" />
+</div>
