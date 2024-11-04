@@ -3,120 +3,100 @@
   <head>
     <style>
       #section {
-        max-width: 530px;
-        position: relative;
-        margin: 0 auto;
-        background-color: #ffeeff33;
-      }
-      .strip {
-        width: 100%;
-        /*  띠의 높이  */
-        height: 60px;
-        /*  띠의 배경 색  */
-        /*   background-color: #f5460c; */
-        /* 하위 텍스트 Span 엘레멘트를 가로로 배열하고, 가운데 정렬한다  */
-        display: flex;
-        align-items: center;
-        /*  Span 엘레먼트 내용이 할당된 폭 넓이를 넘어갔을 때 줄바꿈을 하지 않도록 처리한다.  */
-        white-space: nowrap;
-        /*  띠 넘어간 텍스트 숨기기  */
-        overflow: hidden;
-        font-size: 25px;
-      }
+  max-width: 530px;
+  position: relative;
+  margin: 0 auto;
+}
+.strip {
+  width: 100%;
+  /*  띠의 높이  */
+  height: 60px;
+  /*  띠의 배경 색  */
+  background-color: #f5460c;
+  /* 하위 텍스트 Span 엘레멘트를 가로로 배열하고, 가운데 정렬한다  */
+  display: flex;
+  align-items: center;
+  /*  Span 엘레먼트 내용이 할당된 폭 넓이를 넘어갔을 때 줄바꿈을 하지 않도록 처리한다.  */
+  white-space: nowrap;
+  /*  띠 넘어간 텍스트 숨기기  */
+  overflow: hidden;
+  font-size: 25px;
+}
 
-      #back {
-        /* 위치 설정 */
-        position: absolute;
-        top: 33%;
-        left: 0;
-        z-index: -1;
-        /* 회전 및 모서리 모양 자르기 */
-        transform: rotate(-16deg);
-        clip-path: polygon(0.4% 6%, 100% 0, 100% 100%, 10px 100%);
-      }
+#back {
+  /* 위치 설정 */
+  position: absolute;
+  top: 33%;
+  left: 0;
+  z-index: -1;
+  /* 회전 및 모서리 모양 자르기 */
+  transform: rotate(-16deg);
+  clip-path: polygon(0.4% 6%, 100% 0, 100% 100%, 10px 100%);
+}
 
-      #thumb {
-        width: 100%;
-        /* 위치 설정 */
-        z-index: 0;
-      }
+#front {
+  /* 위치 설정 */
+  position: absolute;
+  top: 55%;
+  left: 0;
+  z-index: 1;
+  /* 회전 및 모서리 모양 자르기 */
+  transform: rotate(6deg);
+  clip-path: polygon(0 0%, 100% 0, 100% 100%, 10px 100%);
+}
 
-      #front {
-        /* 위치 설정 */
-        position: absolute;
-        top: 55%;
-        left: 0;
-        z-index: 1;
-        /* 회전 및 모서리 모양 자르기 */
-        transform: rotate(6deg);
-        clip-path: polygon(0 0%, 100% 0, 100% 100%, 10px 100%);
-      }
+#thumb {
+  width: 100%;
+  /* 위치 설정 */
+  z-index: 0;
+}
 
-      img {
-        z-index: 3;
-      }
+@keyframes scroll-right{
+  from {
+    transform: translateX(-100%);
+  }
 
-      @keyframes scroll-right {
-        from {
-          transform: translateX(-100%);
-        }
+  to {
+    transform: translateX(0%);
+  }
+}
 
-        to {
-          transform: translateX(0%);
-        }
-      }
+@keyframes scroll-left{
+  from {
+    transform: translateX(0%);
+  }
 
-      @keyframes scroll-left {
-        from {
-          transform: translateX(0%);
-        }
+  to {
+    transform: translateX(-100%);
+  }
+}
 
-        to {
-          transform: translateX(-100%);
-        }
-      }
+#back .text{
+    animation: scroll-right 3s linear infinite;
+}
 
-      #back .text {
-        animation: scroll-right 10s ease-in infinite;
-      }
-
-      #front .text {
-        animation: scroll-left 10s linear infinite;
-      }
-
-      @keyframes slide-in {
-        from {
-          translate: 150vw 0;
-          scale: 200% 1;
-        }
-
-        to {
-          translate: 0 0;
-          scale: 100% 1;
-        }
-      }
+#front .text{
+    animation: scroll-left 3s linear infinite;
+}
     </style>
   </head>
   <body>
     <div id="section">
-      <div class="strip" id="front">
-        <span class="text">자야돼 양 한 마리 🐑 </span>
-        <span class="text">자야돼 양 두 마리 🐑 </span>
-        <span class="text">자야돼 양 세 마리 🐑</span>
-        <span class="text">자야돼 양 네 마리 🐑</span>
+      <div id="section">
+        <div class="strip" id="back">
+          <span class="text">오늘 블로그 완료!   ―   </span>
+          <span class="text">오늘 블로그 완료!   ―   </span>
+          <span class="text">오늘 블로그 완료!   ―   </span>
+          <span class="text">오늘 블로그 완료!   ―   </span>
+        </div>
+        <div class="strip" id="front">
+          <span class="text">오늘 블로그 완료!   ―   </span>
+          <span class="text">오늘 블로그 완료!   ―   </span>
+          <span class="text">오늘 블로그 완료!   ―   </span>
+          <span class="text">오늘 블로그 완료!   ―   </span>
+        </div>
+        <img src="https://t1.daumcdn.net/tistory_admin/assets/challenge/today-blog/img_intro_mid.svg" alt="" id="thumb" />
       </div>
-      <div class="strip" id="back">
-        <span class="text">자야돼 양 다섯 마리 🐑 </span>
-        <span class="text">자야돼 양 여섯 마리 🐑 </span>
-        <span class="text">자야돼 양 일곱 마리 🐑</span>
-        <span class="text">자야돼 양 여덟 마리 🐑</span>
-      </div>
-      <img
-        src="https://t1.daumcdn.net/tistory_admin/assets/challenge/today-blog/img_intro_mid.svg"
-        alt=""
-        id="thumb"
-      />
-    </div>
   </body>
 </html>
 
