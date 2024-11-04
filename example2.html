@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body{
+            background-color: #555555ee;
+        }
+      #section {
+        max-width: 530px;
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .strip {
+        width: 100%;
+        /*  띠의 높이  */
+        height: 100px;
+        /*  띠의 배경 색  */
+        
+        background-color: #ffe523ee;
+        /* 하위 텍스트 Span 엘레멘트를 가로로 배열하고, 가운데 정렬한다  */
+        display: flex;
+        align-items: center;
+        /*  Span 엘레먼트 내용이 할당된 폭 넓이를 넘어갔을 때 줄바꿈을 하지 않도록 처리한다.  */
+        white-space: nowrap;
+        /*  띠 넘어간 텍스트 숨기기  */
+        overflow: hidden;
+        font-size: 25px;
+        border-radius: 55%;
+      }
+
+      #back {
+        /* 위치 설정 */
+        position: absolute;
+        top: 41%;
+        left: 0;
+        z-index: -1;
+        /* 회전 및 모서리 모양 자르기 */
+        transform: rotate(0deg);
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-left-radius: 25%;
+        border-bottom-right-radius: 25%;
+        border-top: 10px solid transparent;
+        /* clip-path: polygon(0.4% 6%, 100% 0, 100% 100%, 10px 100%); */
+      }
+
+      #thumb {
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        /* 위치 설정 */
+        z-index: 0;
+      }
+
+      #front {
+        /* 위치 설정 */
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 1;
+        /* 회전 및 모서리 모양 자르기 */
+        transform: rotate(-1deg);
+        border-top-left-radius: 25%;
+        border-top-right-radius: 25%;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom: 10px solid transparent;
+      }
+
+      img {
+        z-index: 3;
+      }
+
+      @keyframes scroll-right {
+        from {
+          transform: translateX(-100%);
+        }
+
+        to {
+          transform: translateX(0%);
+        }
+      }
+
+      @keyframes scroll-left {
+        from {
+          transform: translateX(0%);
+        }
+
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      #back .text {
+        animation: scroll-right 3s linear infinite;
+      }
+
+      #front .text {
+        animation: scroll-left 3s linear infinite;
+      }
+      /* HTML: <div class="sparkle"></div> */
+/* HTML: <div class="sparkle"></div> */
+.sparkle {
+  max-width: 530px;
+  background: #EDC951;
+  mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;
+
+  /* if you will use a different unit than px consider round()
+   height: round(__,1px);
+   width: round(__,1px);
+  */
+}
+
+    </style>
+    <title>Example</title>
+  </head>
+  <body>
+    <div id="section">
+      <div class="strip" id="front">
+        <span class="text">⭐️⎯ 🛰️⎯ ⭐️⎯ 🛰️⎯ ⭐️⎯ 🛰️⎯ </span>
+        <span class="text">⭐️⎯ 🛰️⎯ ⭐️⎯ 🛰️⎯ ⭐️⎯ 🛰️⎯ </span>
+        <span class="text">⭐️⎯ 🛰️⎯ ⭐️⎯ 🛰️⎯ ⭐️⎯ 🛰️⎯ </span>
+        <span class="text">⭐️⎯ 🛰️⎯ ⭐️⎯ 🛰️⎯ ⭐️⎯ 🛰️⎯ </span>
+      </div>
+      <div class="strip" id="back">
+        <span class="text">⎯⭐️ ⎯🛰️ ⎯⭐️ ⎯🛰️ ⎯⭐️ ⎯🛰️ </span>
+        <span class="text">⎯⭐️ ⎯🛰️ ⎯⭐️ ⎯🛰️ ⎯⭐️ ⎯🛰️ </span>
+        <span class="text">⎯⭐️ ⎯🛰️ ⎯⭐️ ⎯🛰️ ⎯⭐️ ⎯🛰️ </span>
+        <span class="text">⎯⭐️ ⎯🛰️ ⎯⭐️ ⎯🛰️ ⎯⭐️ ⎯🛰️ </span>
+      </div>
+      <img src="./world.png" alt="" id="thumb" />
+    </div>
+  </body>
+</html>
